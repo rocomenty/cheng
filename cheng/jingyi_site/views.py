@@ -52,7 +52,7 @@ def vote(request, question_id):
     else:
         # use F( ) functions to
         # avoid race conditions inconsistency by delegating updates to database
-        selected_choice.votes = F('votes') + 1
+        selected_choice.votes = F('votes') + 1 # "votes" is a field in choice model
         selected_choice.save()
         # Always return an HttpResponseRedirect after successfully dealing
         # with POST data. This prevents data from being posted twice if a
